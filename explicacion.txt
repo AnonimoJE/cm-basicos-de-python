@@ -1,0 +1,452 @@
+# Esto es una explicacion de los comandos basicos de Parrot os
+# Propiedad de S.A
+# 01001010
+# 01010000
+# 01000100
+# 01000001
+# 01010011.01000001
+
+
+1 === Como abrir una terminal de comandos con combinaciones de teclas ===
+
+---Bueno, para empezar es importante saber como abrir una terminal sin nesecidad de usar el mouse, ¿A que me refiero con esto?
+a que debes saber como abrir una terminal o llamarla mediente combinaciones de teclas.
+
+# Abrir terminal
+
+# Comando:
+' windows + T '
+
+--- Si mantenemos la tecla "Windows" y al mismo tiempo precionamos la tecla "T"  nos abrira una ventana llamando ala terminal 
+de esta manera no hay nececidad de mover el mouse y es un acceso rapido a ella.
+
+2 === Permisos de administrador /root ===
+
+--- ¿Que es Permisos de administrador o root?.
+Es importante tener en cuenta que podemos navegar por nuestros direcctorios sin ser usuario root pero no podras acceder a todas
+las carpetas que piden permiso root, por que para ser usuario root tienes que llamarlo mediante un comando, Tambien si quieres ser 
+root tienes que saber la contraseña del sistema login ya que si no tienes acceso a ella no podras ingresar como usuario root. 
+En conclucion "root" significa tener el acceso total de todos los permisos del sistema, y asi podremos acceder a direcctorios 
+que piden acceso. Ahora, tienes que tener cuidado donde accedes por que hay carpetas o archivos importantes que no se deverian 
+tocar, mover o editar ya que podrian causar algun fallo a nivel de sistema.
+
+# ¿Como ser root? 
+
+Para tener acceso 'root' debemos ingresar el comando 'sudo su' seguido de esto ingresar nuestra contraseña.
+
+# Acceder a root
+
+# Comando:
+' sudo su '
+
+--- Ya con esto seremos usuario root y sera visible en la raiz del sistema y nos saldra el signo de numeral '#'
+pero cuando no lo eres saldra el signo del dolar '$' 
+
+# identificar que somos root. (#)
+┌─[root@parrot]
+└──╼ #
+
+# identificador que no somos root. ($)
+┌─[parrot@parrot]
+└──╼ $
+
+
+3 === ¿Que se debe hacer siempre que se llama o se abre una terminal de comandos? ===
+
+--- Lo que siempre se debe de hacer antes de usar la terminal de comandos es actualizar todos los paquetes del sistema con el 
+comando "apt update" 
+
+# Actualizar paquetes del sistema
+
+# Comando:
+' apt update '
+
+--- Una vez ingresado el comando el sistema actualizara todos los paquetes y buscara los nuevos si es que hay alguno por instalar.
+Una vez hemos visto que no hay paquetes por actualizar o descargar podemos proseguir en nuestras tareas.
+Pero si el caso fuera el contrario y se encontraron paquetes abria que instalarlos ¿Y como hacemos eso? pues para instalar paquetes
+si aun no estan instalados se usa el comando 'apt upgrade -y' de esta manera el sistema buscara los paquetes por instalar y los 
+descargara para poder usarlos. 
+
+# Descargar paquetes nuevos.
+
+# Comando:
+' apt upgrade -y '
+
+ ---Ya con eso se deberia aver instalado todo aquel paquete nuevo. 
+
+
+
+4 === comandos basicos para poder navegar o moverse dentro de nuestras carpetas y cuales otros se usan ===
+
+--- Lo mas importante al momento de navegar por nuestro sistema es saber los comandos basicos, ya que asi sabremos lo que
+estamos haciendo.
+ 
+# Comandos basicos que deverias tomar en cuenta al momento de navegar por la terminal del sistema.
+
+[1] - 'ls' = El comando "ls" nos muestra la lista de archivos en el sistema o en el repositorio en que estemos.
+
+#Ejemplo
+
+# No muestra el listado.
+
+┌─[parrot@parrot]─[~]
+└──╼ $ 
+
+# Ya ejecutando "ls" podremos ver el listado.
+
+┌─[parrot@parrot]─[~]
+└──╼ $ ls  
+
+Descargas   Documentos   Imágenes   Música   Público 
+
+
+[2] - 'cp' = El comando "cp" nos permitira desplazarnos de carpetas en carpetas para acceder dentro de ellas.
+
+#Ejemplo:
+
+┌─[parrot@parrot]─[~]
+└──╼ $ cd Documentos
+
+Descargas   Documentos   Imágenes   Música   Público  
+
+# Ya dentro de la carpeta se puede ver el nombre aun lado de la raiz del sistema.
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $
+
+
+[3] - 'cp ..' = El comando "cp .." es lo contrario de 'cp' ya que a este se le agregan 2 puntos, y asi poder retroceder ala carpeta anterior.
+
+#Ejemplo:
+
+┌─[parrot@parrot]─[~]
+└──╼ $ cd Documentos
+
+Descargas   Documentos   Imágenes   Música   Público
+
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ cd ..
+
+┌─[parrot@parrot]─[~]
+└──╼ $
+
+ Descargas   Documentos   Imágenes   Música   Público
+
+# De esa manera podras regresar un paso atras dentro de la carpeta en que te encuentres.
+
+
+[4] - 'pwd' = El comando "pwd" nos permitira ver donde estamos ubicados exactamente, Este comando es util cuando 
+olvidamos donde estamos ubicados o tambien para mover o copiar carpetas o archivos.
+
+#Ejemplo:
+
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ pwd
+
+/home/parrot/Documentos
+
+# Hay podemos ver que estamos en la carpeta "Documentos"
+
+
+[5] - 'mkdir' = El comando "mkdir" se utiliza para crear carpetas.
+
+#Ejemplo:
+
+
+┌─[parrot@parrot]─[~]
+└──╼ $ 
+
+Descargas   Documentos   Imágenes   Música   Público
+
+
+┌─[parrot@parrot]─[~]
+└──╼ $ mkdir ejemplo   
+
+Descargas   Documentos   Imágenes   Música   Público
+
+# Una vez creada la carpeta puedes usar "ls" para volver a listar todas las carpetas y podras ver la que acabas de crear.
+
+
+┌─[parrot@parrot]─[~]
+└──╼ $ ls
+
+Descargas   Documentos   Imágenes   Música   Público   ejemplo
+
+
+[6] - 'rm' = El comando "rm" se usa para borrar un archivo que ya no deseamos tener.
+
+#Ejemplo:
+
+ 
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ ls
+
+prueba1    prueba2
+
+# Aqui observamos que hay dos archivos dentro de la carpeta "Documentos" uno se llama (prueba1 y prueba2) como seria para borrar el archivo prueba2.
+
+
+#Ejemplo:
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ rm prueba2
+
+prueba1    prueba2
+
+# Como recordaras que "rm" es para borrar, lo usamos y ponemos el nombre del archivo a borrar que en este caso es prueba2.
+# Una vez borrado comprobamos con un "ls" y ya no deveria de estar el archivo que acabamos de borrar, en este caso:
+
+#Ejemplo:
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ rm prueba2
+
+prueba1    prueba2
+
+
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ ls
+
+prueba1  
+
+
+
+
+[7] - 'touch' = El comando "touch" se usa para crear archivos de texto.
+
+#Ejemplo:
+
+┌─[parrot@parrot]─[~]
+└──╼ $ ls
+
+Descargas   Documentos   Imágenes   Música   Público 
+
+
+┌─[parrot@parrot]─[~]
+└──╼ $ touch prueba.txt         
+
+Descargas   Documentos   Imágenes   Música   Público
+
+# En esta ocacion estamos creando un archivo llamado prueba.txt
+# luego de eso puedes ver con un "ls" y ya estara creado tu archivo.
+
+┌─[parrot@parrot]─[~]
+└──╼ $ ls
+
+Descargas   Documentos   Imágenes   Música   Público    prueba.txt
+
+# Y como vez ya se creo el archivo "prueba.txt" en el caso de que lo quieras borrar recuerda que seria con "rm"
+
+#Ejemplo 
+
+┌─[parrot@parrot]─[~]
+└──╼ $ rm prueba.txt              
+
+Descargas   Documentos   Imágenes   Música   Público    prueba.txt
+ 
+
+┌─[parrot@parrot]─[~]
+└──╼ $ ls
+
+Descargas   Documentos   Imágenes   Música   Público  
+ 
+
+# De esta manera ya puedes crear archivos y borrarlos cuando quieras, siempre y cuando uses los comandos con claridad.
+
+
+[8] - 'rm -r' = Este comando es igual que 'rm' a diferencia de este se le agrega un '-r' ya que con este comando puedes borrar 
+carpetas.
+
+#Ejemplo
+ 
+┌─[parrot@parrot]─[~]
+└──╼ $ 
+
+Descargas   Documentos   Imágenes   Música   Público   carpeta1
+
+
+# Hay podemos observa que hay una carpeta llamada "carpeta1" si quisieramos borrarla en este caso seria.
+
+#Ejemplo
+
+
+┌─[parrot@parrot]─[~]
+└──╼ $ rm -r carpeta1  
+
+Descargas   Documentos   Imágenes   Música   Público   carpeta1
+
+ 
+
+┌─[parrot@parrot]─[~]
+└──╼ $ ls
+
+Descargas   Documentos   Imágenes   Música   Público  
+
+# Como veras ya no se encuentra la "carpeta1" y asi es como se borran las carpetas, Recuerda con "rm" se borran archivos y con "rm -r" se borran carpetas. 
+# Tambien es importante saber que carpeta borraras por que si borras alguna carpeta importante podrias ocasionar problemas a nivel de sistema. 
+
+ 
+
+
+[9] - 'cp' = El comando "cp" sirve para copiar ya sean archivos y carpetas de de una directorio a otro.
+
+
+#Ejemplo.
+
+
+┌─[parrot@parrot]─[~]
+└──╼ $ ls
+
+Descargas   Documentos   Imágenes   Música   Público  prueba.txt
+ 
+
+# En esta oscasion podemos observar que hay un archivo llamado "prueba.txt". como seria para copiar ese archivo en la carpeta "Documentos".
+# Para eso usamos el comando "cp" y el nombre del archivo o carpeta a copiar en este caso seria.
+
+
+┌─[parrot@parrot]─[~]
+└──╼ $ cp prueba.txt 
+
+Descargas   Documentos   Imágenes   Música   Público  prueba.txt
+
+
+# Es importante saber el direcctorio exacto donde se guardara la copia de nuestro archivo, y recuerda que para ver nuestra ubicacion se usa el comando "pwd".
+# Entonces para eso podemos hacer esto.
+
+
+┌─[parrot@parrot]─[~]
+└──╼ $ cd Documentos
+
+Descargas   Documentos   Imágenes   Música   Público  prueba.txt
+
+# Aqui accedemos a Documentos para poder ver la ubicacion y asi copiar el archivo dentro de esta.
+
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ ls
+
+prueba1   prueba2
+
+# Ahora podemos ver dos archivos entonces ya metiendo el archivo prueba.txt serian 3 pero antes debes guardar la ubicacion "pwd"
+
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $pwd
+
+/home/parrot/Documentos
+
+# Y como veras ya ejecutando el comando nos saldra la ubicacion exacta de donde nos encontrampos entonces la copiamos y retrocedemos a buscar el archivo "prueba.txt
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ cd ..
+
+/home/parrot/Documentos
+
+
+
+┌─[parrot@parrot]─[~]
+└──╼ $ ls 
+
+Descargas   Documentos   Imágenes   Música   Público  prueba.txt
+
+
+# Una vez aqui  entonces podemos prooceder a copiar el archivo ala carpeta deseada, en este caso.
+
+
+┌─[parrot@parrot]─[~]
+└──╼ $ cp prueba.txt /home/parrot/Documentos 
+
+Descargas   Documentos   Imágenes   Música   Público  prueba.txt
+
+
+# Recuerda es importante agregar y saber bien la ubicacion en la que desea guardar el archivo seleccionado.
+# Una vez hecho eso puedes ir de nuevo a documentos y se encontrara el archivo que acabas de copiar.
+
+┌─[parrot@parrot]─[~]
+└──╼ $ cd Documentos
+
+Descargas   Documentos   Imágenes   Música   Público  prueba.txt
+
+
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ ls
+
+prueba1   prueba2   prueba.txt
+
+
+# Como veras esta el archivo que acabamos de copiar ala carpeta "Documentos"
+# De esta manera puedes pegar archivos donde desees.
+# Tambien dejame decirme que el comando "cp" sirve para renombrar un archivo o carpeta, Asi es sirve para copiar y renombrar.
+
+# En este caso como seria para renombrar un archivo usando el comando "cp".
+
+#Ejemplo 
+
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ ls
+
+prueba1   prueba2   prueba.txt
+
+   
+# Aqui vemos 3 archivos dentro de la carpeta "Documentos" y queremos renombrar el archivo llamada "prueba.txt" a "prueba3" en este caso seria.
+
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ cp prueba.txt prueba3
+
+prueba1   prueba2   prueba.txt
+
+
+# Como podras ver es casi lo mismo a diferencia de que aqui ponemos "cp" para renombrar y no copiar, ponemos el nombre del archivo a renombrar y aun lado el nombre nuevo que le queremos dar una vez editado, en este caso seria. 
+
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ cp prueba.txt prueba3
+
+prueba1   prueba2   prueba.txt
+
+
+
+
+┌─[parrot@parrot]─[~/Documentos]
+└──╼ $ ls
+
+prueba1   prueba2   prueba.txt   prueba3
+
+
+# Y como observaras ya estaria creado el nuevo archivo y si queremos eliminar el que no ocupamos seria con "rm" pero siempre revisa bien el archivo que borraras porq una vez borrado ya no podras recuperarlo.
+
+
+
+[10] - ' clear y exit ' = estos comandos casi no se usaran pero no son menos importantes.
+
+# El comando "clear" sirve para despejar la pantalla cuando ya hemos ejecutado muchos comandos y queremos una vista mejor y limpia.
+# El comando "exit" sirve para cerrar secion en la terminal si ya hemos terminado nuestras tareas.
+
+# Por ahora estos serian los comandos basicos que deverias aprender para usar la terminal y poder navegar en ella pedazo de mama pinga.
+# Aprenda estos comandos y luego ira avanzando y aprendiendo mas cosas pero no quiera hackear a la NASA si ni sabe usar estos comandos.
+
+--- LA SEGURIDAD ES PRIMERO ---
+
+
+# S.A
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
